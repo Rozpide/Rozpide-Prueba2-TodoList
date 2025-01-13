@@ -5,14 +5,22 @@ const TodoList = () => {
     const [tareas, setTareas]= useState ([]);
     const [nuevaTarea , setNuevaTarea] = useState ('');
 
-    const agregarTarea = () => {
-        setTareas(nuevaTarea)
+    const manejarEntrada = (e) => {
+        setNuevaTarea(e.target.value);
     }
+
+    const añadirTarea = () => {
+        if (nuevaTarea !== ''){
+            setTareas([...tareas, nuevaTarea]);
+            setTareas('');
+        }
+    }
+
 
     return (
         <>
             <h1>TodoList</h1>
-            <input type="text" value={nuevaTarea} onChange={(e)=>setTareas(nuevaTarea)} placeholder="añade tu tarea"/>
+            <input type="text" className="input-tarea" value={nuevaTarea} onChange={manejarEntrada}  placeholder="añade tu tarea"/>
         </>
     )
 }
