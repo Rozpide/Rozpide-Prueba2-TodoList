@@ -9,10 +9,16 @@ const TodoList = () => {
         setNuevaTarea(e.target.value);
     }
 
-    const añadirTarea = () => {
+    const añadirTareas = () => {
         if (nuevaTarea !== ''){
             setTareas([...tareas, nuevaTarea]);
-            setTareas('');
+            setNuevaTarea('');
+        }
+    }
+    const manejarTecla = (e) => {
+        if (e.key === 'Enter'){
+            añadirTareas();
+            console.log('se ejecuta bien')
         }
     }
 
@@ -20,7 +26,7 @@ const TodoList = () => {
     return (
         <>
             <h1>TodoList</h1>
-            <input type="text" className="input-tarea" value={nuevaTarea} onChange={manejarEntrada}  placeholder="añade tu tarea"/>
+            <input type="text" className="input-tarea" value={nuevaTarea} onChange={manejarEntrada} onKeyDown={manejarTecla} placeholder="añade tu tarea"/>
         </>
     )
 }
