@@ -29,8 +29,10 @@ const TodoList = () => {
 
     return (
         <>
-            <h1>TodoList</h1>
-            <input type="text" className="input-tarea" value={nuevaTarea} onChange={manejarEntrada} onKeyDown={manejarTecla} placeholder="añade tu tarea"/>
+            <h1 className="titulo">TodoList</h1>
+            <div className="entrada-tarea">
+                <input type="text" className="input-tarea" value={nuevaTarea} onChange={manejarEntrada} onKeyDown={manejarTecla} placeholder="añade tu tarea"/>
+            </div>
             <ul className="lista-tareas">
                 {tareas.map((tarea, index) => (
                     <li key={index} className={`tarea-item ${index > 0 ? 'tarea-apilada' : ''}`}>{tarea}
