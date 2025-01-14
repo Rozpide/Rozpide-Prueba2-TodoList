@@ -33,10 +33,10 @@ const TodoList = () => {
 
     return (
         <>
-            <h1 className="titulo">TodoList</h1>
+            <h1 className="titulo">todos</h1>
             <div className="entrada-tarea">
                 {/*añado el input para que el usuario introduzca las tareas */}
-                <input type="text" className="input-tarea" value={nuevaTarea} onChange={manejarEntrada} onKeyDown={manejarTecla} placeholder="añade tu tarea"/>
+                <input type="text" className="input-tarea" value={nuevaTarea} onChange={manejarEntrada} onKeyDown={manejarTecla} placeholder="What needs to be done?"/>
             </div>
             <ul className="lista-tareas">
                 {/*mapeo la lista para mostrar cada tarea en un 'li' */}
