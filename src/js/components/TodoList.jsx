@@ -50,13 +50,15 @@ const TodoList = () => {
                         </button>
                     </li>         
                 ))} 
+                {/*añado el elemento de la base que va mostrando el numero de items añadidos*/}
                 <p className="items-restantes">{tareas.length} item(s) left</p>   
             </ul>
+            {/*añado los div necesarios para incluir la parte de abajo del proyecto */}
             <div className="folio"></div>
             <div className="folio-2"></div>
             
         </>
     )
 }
-
+// exporto el componente para reutilizarlo donde se necesite
 export default TodoList
