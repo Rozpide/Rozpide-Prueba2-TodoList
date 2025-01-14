@@ -35,11 +35,14 @@ const TodoList = () => {
         <>
             <h1 className="titulo">TodoList</h1>
             <div className="entrada-tarea">
+                {/*añado el input para que el usuario introduzca las tareas */}
                 <input type="text" className="input-tarea" value={nuevaTarea} onChange={manejarEntrada} onKeyDown={manejarTecla} placeholder="añade tu tarea"/>
             </div>
             <ul className="lista-tareas">
+                {/*mapeo la lista para mostrar cada tarea en un 'li' */}
                 {tareas.map((tarea, index) => (
-                    <li key={index} className={`tarea-item ${index > 0 ? 'tarea-apilada' : ''}`}>{tarea}
+                    <li key={index} className={`tarea-item ${index > 0 ? 'tarea-apilada' : ''}`}>{tarea}{/*muestra el texto de la tarea dentro de cada '<li/>' */}
+                    {/*boton para eliminar la tarea */}
                         <button onClick={() => eliminarTarea(index)} className="boton-eliminar oculto">
                             <span class="material-symbols-outlined">{/*añado la x de closed con google fonts, para que tenga los angulos iguales */}
                             close
