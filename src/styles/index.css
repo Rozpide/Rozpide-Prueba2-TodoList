@@ -9,3 +9,147 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+/* Aquí estamos configurando el cuerpo de la página */
+body {
+    font-family: 'Roboto', sans-serif; /* Estoy eligiendo la fuente 'Roboto' para todo el texto asi puedo modificar el peso */
+    display: flex; /* Uso Flexbox para organizar mejor los elementos */
+    justify-content: center; /* Centro todo horizontalmente */
+    align-items: center; /* Centro todo verticalmente */
+    height: 100vh; /* Hago que el cuerpo ocupe toda la altura de la ventana */
+    background-color: #f5f5f5; /* Le pongo un fondo gris clarito */
+    margin: 0; /* Quito cualquier margen */
+}
+
+/* Esto es para el título en la página */
+.titulo {
+    font-family: 'Roboto', sans-serif; /* Mantengo la fuente 'Roboto' */
+    font-size: 6.5em; /* ajusto el tamaño del titulo */
+    text-align: center; /* Centro el texto */
+    margin-bottom: 20px; /* Le doy un espacio abajo del título */
+    color: #f0dfdf; /* Color rosa claro */
+    font-weight: 100; /* Hago que la fuente sea delgadita */
+}
+
+/* Aquí es donde el usuario escribe sus tareas */
+.entrada-tarea {
+    color: rgb(187, 184, 184); /* Texto gris claro */
+    border: 1px transparent #ddd; /* Borde invisible */
+    display: flex; /* Uso Flexbox para organizar mejor */
+    justify-content: center; /* Centro horizontalmente */
+    margin-bottom: 0; /* Quito el margen inferior */
+}
+
+/* Estilo del campo de entrada */
+.input-tarea {
+    box-shadow: 0 1px 1px rgb(128, 127, 127); /* Una sombra ligera */
+    color: grey; /* Texto en gris */
+    padding: 10px; /* Espacio interno */
+    font-size: 1em; /* Tamaño de la fuente */
+    border: 1px solid #ddd; /* Borde delgado */
+    width: 500px; /* Ancho del campo */
+    outline: none; /* Sin contorno al hacer clic */
+    border-bottom: none; /* Sin borde inferior para que se acople bien a la lista*/
+}
+
+/* Aquí estilizo la lista donde se muestran las tareas */
+.lista-tareas {
+    color: grey; /* Texto en gris */
+    list-style-type: none; /* Sin puntos ni números viñetas */
+    padding: 0; /* Sin relleno interno */
+    border: 1px solid #ddd; /* Borde delgado */
+    border-radius: 0px; /* Bordes rectos */
+    max-width: 500px; /* Ancho máximo */
+    margin: 0 auto; /* Centro la lista */
+    background-color: white; /* Fondo blanco */
+    box-shadow: 0 1px 1px rgb(128, 127, 127); /* Una sombra ligera */
+    position: relative; /* Posición relativa */
+    overflow: visible; /* Permito el desbordamiento visible */
+}
+
+/* Añadiendo efectos visuales extra a la lista */
+.lista-tareas::before, .lista-tareas::after, .folio-1, .folio-2 {
+    content: ''; /* Contenido vacío */
+    display: block; /* Se muestra como un bloque */
+    height: 8px; /* Altura */
+    background-color: white; /* Fondo blanco */
+    border: 0.8px solid #cbcaca; /* Borde delgado */
+    border-radius: 0px; /* Bordes rectos */
+    position: absolute; /* Posición absoluta */
+    left: 0%; /* Alineado a la izquierda */
+    width: 100%; /* Ancho completo */
+    transform: translateX(-50%); /* Centro horizontalmente */
+    z-index: -1; /* Detrás del contenido principal */
+}
+
+/* Sombra para la parte superior de la lista */
+.lista-tareas::before {
+    top: 100%; /* Posición en la parte superior */
+    box-shadow: 0 1px 1px rgba(128, 127, 127, 0.933); /* Sombra ligera */
+    transform: translateY(3px) scale(0.97); /* Transformación, se mueve 3 pixeles hacia abajo*/
+}
+
+/* Sombra para la parte inferior de la lista */
+.lista-tareas::after {
+    top: 100%; /* Posición en la parte inferior */
+    box-shadow: 0 1px 1px rgb(138, 137, 137); /* Sombra ligera */
+    transform: translateY(-2px) scale(0.99); /* Transformación, se mueve 2 pixeles hacia arriba */
+}
+
+/* Primer folio debajo de la lista */
+.folio-1 {
+    top: 80%; /* Posición en la parte superior */
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    transform: translateY(12px) scale(3); /* Transformación */
+    z-index: -2; /* Detrás del contenido principal */
+}
+
+/* Segundo folio debajo de la lista */
+.folio-2 {
+    top: 80%; /* Posición en la parte inferior */
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    transform: translateY(24px) scale(0); /* Transformación */
+    z-index: -3; /* Detrás del contenido principal */
+}
+
+/* Estilo para cada ítem de tarea */
+.tarea-item {
+    font-size: medium; /* Tamaño de fuente mediano */
+    display: flex; /* Uso Flexbox para organizar */
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center; /* Alineación vertical */
+    padding: 10px; /* Espacio interno */
+    border-bottom: 1px solid #ddd; /* Borde inferior delgado */
+    position: relative; /* Posición relativa */
+}
+
+/* Mostrar botón de eliminar al pasar el ratón */
+.tarea-item:hover .boton-eliminar {
+    display: inline; /* Mostrar como inline */
+}
+
+/* Estilo del botón de eliminar */
+.boton-eliminar {
+    background-color: transparent; /* Fondo transparente */
+    color: rgb(189, 187, 187); /* Color gris claro */
+    border: none; /* Sin borde */
+    border-radius: 50%; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de clic */
+    padding: 5px 10px; /* Espacio interno */
+    font-size: 1em; /* Tamaño de la fuente */
+    display: none; /* Oculto por defecto */
+}
+
+/* Cambiar color del botón de eliminar al pasar el ratón */
+.boton-eliminar:hover {
+    background-color: transparent; /* Fondo transparente */
+    color: grey; /* Color gris */
+}
+
+/* Estilo para mostrar los ítems restantes */
+.items-restantes {
+    font-size: small; /* Tamaño de fuente pequeño */
+    text-align: left; /* Alineado a la izquierda */
+    margin-top: 8px; /* Espacio superior */
+    color: #c7c9c2; /* Color gris claro */
+    padding-left: 10px; /* Espacio a la izquierda */
+}
