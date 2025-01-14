@@ -34,15 +34,18 @@ const TodoList = () => {
             <ul className="lista-tareas">
                 {tareas.map((tarea, index) => (
                     <li key={index} className={`tarea-item ${index > 0 ? 'tarea-apilada' : ''}`}>{tarea}
-                    <button onClick={() => eliminarTarea(index)} className="boton-eliminar oculto">
-						<span class="material-symbols-outlined">{/*añado la x de closed con google fonts, para que tenga los angulos iguales */}
-						close
-						</span>
-					</button>
-                    </li>
-                ))}
-                
+                        <button onClick={() => eliminarTarea(index)} className="boton-eliminar oculto">
+                            <span class="material-symbols-outlined">{/*añado la x de closed con google fonts, para que tenga los angulos iguales */}
+                            close
+                            </span>
+                        </button>
+                    </li>         
+                ))} 
+                <p className="items-restantes">{tareas.length} item(s) left</p>   
             </ul>
+            <div className="folio"></div>
+            <div className="folio-2"></div>
+            
         </>
     )
 }
