@@ -68,7 +68,7 @@ const ToodoList = () => {
         obtenerTareas();
     }, []);
 
-    // Creamos las funciones flecha necesarias para realizar todas las acciones del ToodoList
+    // Creo las funciones flecha necesarias para realizar todas las acciones del ToodoList
     // 1º En esta funcion, estoy llamando a setNuevaTarea, que es una función del hook useState de React. El valor que paso a setNuevaTarea es e.target.value. 'e' es el evento que se desencadena cuando hay una entrada en el campo del input, target es el elemento que dispara el evento (en este caso, el input) y value es el valor actual de ese input.
     const manejarEntrada = (e) => {
         setNuevaTarea(e.target.value);
@@ -76,7 +76,7 @@ const ToodoList = () => {
 
     // Aquí estoy declarando una función de flecha llamada manejarTecla que toma un parámetro e(evento)
     const manejarTecla = (e) => {
-        if (e.key === 'Enter') { // Esta línea evalúa si la tecla presionada es la tecla 'Enter'. 'e' es el evento del teclado que se dispara, y 'key' es una propiedad del evento que contiene el valor de la tecla presionada. Si la tecla presionada es 'Enter', la condición se evalúa como verdadera.
+        if (e.key === 'Enter') { // Esta línea evalúa si la tecla presionada es la tecla 'Enter'. 'e' es el evento del teclado que se dispara, y 'key' es una propiedad del evento que contiene el valor de la tecla presionada. Si la tecla presionada es 'Enter', la condición es verdadera.
             añadirTareas(); // llama a la funcion añadirTareas si se presiona 'Enter'
         }
     };
