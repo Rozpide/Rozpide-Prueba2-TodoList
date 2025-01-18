@@ -32,33 +32,33 @@ const TodoList = () => {
 
 
     return (
-        <>
+         <>
             <h1 className="titulo">todos</h1>
             <div className="entrada-tarea">
-                {/*añado el input para que el usuario introduzca las tareas */}
+                
                 <input type="text" className="input-tarea" value={nuevaTarea} onChange={manejarEntrada} onKeyDown={manejarTecla} placeholder="What needs to be done?"/>
             </div>
             <ul className="lista-tareas">
-                {/*mapeo la lista para mostrar cada tarea en un 'li' */}
+                
                 {tareas.map((tarea, index) => (
-                    <li key={index} className={`tarea-item ${index > 0 ? 'tarea-apilada' : ''}`}>{tarea}{/*muestra el texto de la tarea dentro de cada '<li/>' */}
-                    {/*boton para eliminar la tarea */}
-                        <button onClick={() => eliminarTarea(index)} className="boton-eliminar oculto">
-                            <span class="material-symbols-outlined">{/*añado la x de closed con google fonts, para que tenga los angulos iguales */}
+                    <li key={index} className={`tarea-item ${index > 0 ? 'tarea-apilada' : ''}`}>{tarea}
+                   
+                       <button onClick={() => eliminarTarea(index)} className="boton-eliminar oculto">
+                            <span class="material-symbols-outlined">
                             close
                             </span>
                         </button>
                     </li>         
                 ))} 
-                {/*añado el elemento de la base que va mostrando el numero de items añadidos*/}
+            
                 <p className="items-restantes">{tareas.length} item(s) left</p>   
             </ul>
-            {/*añado los div necesarios para incluir la parte de abajo del proyecto */}
+     
             <div className="folio"></div>
             <div className="folio-2"></div>
             
         </>
     )
 }
-// exporto el componente para reutilizarlo donde se necesite
+
 export default TodoList
