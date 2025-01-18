@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import LimpiarTareas from "./LimpiarTareas";
 
 // inicio creando el componente funcional 'ToodoList'
 const ToodoList = () => {
@@ -97,6 +98,7 @@ const ToodoList = () => {
                 ))}
                 <p className="items-restantes">{tareas.length} item(s) left</p>
             </ul>
+            <LimpiarTareas tareas={tareas} setTareas={setTareas} /> {/* Añade el componente LimpiarTareas */}
             <div className="folio"></div>
             <div className="folio-2"></div>
         </>
