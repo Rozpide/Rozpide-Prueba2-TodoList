@@ -38,9 +38,10 @@ const ToodoList = () => {
                 return resp.json();
             })
             .then(data => {
-                setTareas([...tareas, data]);
-                setNuevaTarea(''); // por ultimo limpia el campo del input
-            })
+                if (data && data.label){ setTareas([...tareas, data]);
+                    setNuevaTarea('') }else {throw new Error('Formato de respuesta incorrecto');}}
+               // por ultimo limpia el campo del input
+            )
             .catch(error => console.log(error));
         }
     };
