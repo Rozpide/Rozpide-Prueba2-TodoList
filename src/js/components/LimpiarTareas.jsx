@@ -1,6 +1,6 @@
 import React from "react";
 
-const LimpiarTareas = ({ tareas, setTareas }) => {
+const LimpiarTareas = ({ setTareas }) => {
     const limpiarTareas = () => {
         fetch('https://playground.4geeks.com/todo/todos/NuevoRozpide', {
             method: "DELETE"
