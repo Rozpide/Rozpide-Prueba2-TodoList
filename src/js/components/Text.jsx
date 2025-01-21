@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 
 // inicio creando el componente funcional 'ToodoList'
-const ToodoList = () => {
+const Text = () => {
     // creo las variables de estado necesarias para este componente
     const [tareas, setTareas] = useState([]); // variable de estado para el listado de tareas, por eso al hook le paso [] vacio
     const [nuevaTarea, setNuevaTarea] = useState(''); // variable de estado para el campo de entrada inicializado ('') vacia
 
     // Función para obtener las tareas
     const obtenerTareas = () => {
-        fetch('https://playground.4geeks.com/todo/todos/NuevoRozpide')// hace una peticion a la url
+        fetch('https://playground.4geeks.com/todo/todos/users/NuevoRozpide')// hace una peticion a la url, desde postman la url no lleva 'todos'
             .then(resp => {//
-                if (!resp.ok) {// si la respuesta no es correcta lanza un erro
+                if (!resp.ok) {// si la respuesta no es correcta lanza un error
                     throw new Error('Error al obtener las tareas');// lanza un error
                 }
                 return resp.json();// si la respuesta es correcta, devuelve la respuesta en formato json
@@ -66,27 +66,6 @@ const ToodoList = () => {
         .catch(error => console.log(error));
     };
     
-   
-        /*fetch(`https://playground.4geeks.com/todo/todos/NuevoRozpide/${tareaAEliminar}`, {
-            method: "DELETE",
-            body: JSON.stringify(nueva),
-            headers: { 
-                "Content-Type": "application/json"  
-            }
-        })
-        .then(resp => {
-            if (!resp.ok) {
-                throw new Error('Error al eliminar la tarea');
-            }
-            return resp.json();
-        })
-        .then((tareas) => {
-            const actualizarTareas = tareas.filter((_, i) => i !== index);
-            setTareas(actualizarTareas);
-        })
-        .catch(error => console.log(error));*/
-    
-
     // Obtener las tareas al cargar el componente
     useEffect(() => {
         obtenerTareas();
@@ -118,9 +97,8 @@ const ToodoList = () => {
                     <li key={index} className={`tarea-item ${index > 0 ? 'tarea-apilada' : ''}`}>{tarea.label}
                         <button onClick={() => eliminarTarea(index)} className="boton-eliminar oculto">
                             <span className="material-symbols-outlined">close</span>
-                             {/*falta el boton*/}
                         </button>
-                        {/*falta el boton*/}
+                        
                     </li>
                 ))}
                 <p className="items-restantes">{tareas.length} item(s) left</p>
@@ -131,5 +109,5 @@ const ToodoList = () => {
     );
 };
 
-export default ToodoList;
+export default Text;
 
