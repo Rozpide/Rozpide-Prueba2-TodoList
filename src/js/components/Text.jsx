@@ -8,95 +8,93 @@ const Text = () => {
 
     // Función para obtener las tareas
     const obtenerTareas = () => {
-        fetch('https://playground.4geeks.com/todo/todos/users/NuevoRozpide')
-            .then(resp => {
-                if (!resp.ok) {
-                    throw new Error('Error al obtener las tareas');
+        fetch('https://playground.4geeks.com/todo/todos/users/NuevoRozpide')// hace una peticion a la url, desde postman la url no lleva 'todos'
+            .then(resp => {// si la respuesta es correcta
+                if (!resp.ok) {// si la respuesta no es correcta lanza un error
+                    throw new Error('Error al obtener las tareas');// lanza un error
                 }
-                return resp.json();
+                return resp.json();// si la respuesta es correcta, devuelve la respuesta en formato json
             })
-            .then(data => setTareas(data))
-            .catch(error => console.log(error));
+            .then(data => setTareas(data))// si la respuesta es correcta, llama a la funcion setTareas y le pasa la respuesta en formato json
+            .catch(error => console.log(error));// si hay un error, lo muestra en la consola
     };
 
     // Función para añadir una nueva tarea
     const añadirTareas = () => {
-        if (nuevaTarea !== '') {
-            const nueva = { label: nuevaTarea, done: false };
-            fetch('https://playground.4geeks.com/todo/todos/NuevoRozpide', {
-                method: "POST",
-                body: JSON.stringify(nueva),
+        if (nuevaTarea !== '') {// si el campo de entrada no esta vacio
+            const nueva = { label: nuevaTarea, done: false };// crea un objeto con la tarea y el estado de la tarea
+            fetch('https://playground.4geeks.com/todo/todos/NuevoRozpide', {// hace una peticion a la url
+                method: "POST",// metodo de la peticion POST para añadir una tarea nueva a la lista de tareas
+                body: JSON.stringify(nueva),// convierte el objeto en formato json
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json"// tipo de contenido que se envia en la peticion /json
                 }
             })
-            .then(resp => {
+            .then(resp => {// si la respuesta es correcta
                 if (!resp.ok) {
-                    throw new Error('Error al añadir la tarea');
+                    throw new Error('Error al añadir la tarea');// si la respuesta no es correcta lanza un error
                 }
-                return resp.json();
+                return resp.json();// si la respuesta es correcta, devuelve la respuesta en formato json
             })
             .then(data => {
-                setTareas([...tareas, data]);
-                setNuevaTarea('');
+                setTareas([...tareas, data]);// añade la nueva tarea al listado de tareas
+                setNuevaTarea('');// por ultimo limpia el campo del input para que el usuario pueda añadir otra tarea
             })
-            .catch(error => console.log(error));
+            .catch(error => console.log(error));// si hay un error, lo muestra en la consola para que el usuario pueda verlo
         }
     };
 
     // Función para eliminar una tarea
-    const eliminarTarea = (index) => {
+    const eliminarTarea = (index) => {// funcion para eliminar una tarea
         const tareaAEliminar = tareas[index];
-        return fetch(`https://playground.4geeks.com/todo/todos/${tareaAEliminar.id}`, {
-            method: "DELETE",
+        return fetch(`https://playground.4geeks.com/todo/todos/${tareaAEliminar.id}`, {// hace una peticion a la url
+            method: "DELETE",// metodo de la peticion DELETE para eliminar una tarea
             headers: { 
                 "Content-Type": "application/json"  
             }
         })
-        .then((resp) => {
+        .then((resp) => {// si la respuesta es correcta
             if (!resp.ok) {
-                throw new Error('Error al eliminar la tarea');
+                throw new Error('Error al eliminar la tarea');// si la respuesta no es correcta lanza un error
             }
-            return resp.text();
+            return resp.text();// si la respuesta es correcta, devuelve la respuesta en formato texto
         })
-        .then(() => {
-            const actualizarTareas = tareas.filter((_, i) => i !== index);
-            setTareas(actualizarTareas);
+        .then(() => {// si la respuesta es correcta
+            const actualizarTareas = tareas.filter((_, i) => i !== index);// filtra las tareas y elimina la tarea seleccionada
+            setTareas(actualizarTareas);// actualiza el listado de tareas con la tarea eliminada
         })
         .catch(error => console.log(error));
     };
 
-    // Función para eliminar todas las tareas con un bucle sin async/await
+    // Función para eliminar todas las tareas con un bucle
     const eliminarTodasTareas = () => {
-        const promesas = tareas.map((_, i) => eliminarTarea(i));
-        Promise.all(promesas)
-            .then(() => setTareas([]))
-            .catch(error => console.log(error));
+        const promesas = tareas.map((_, i) => eliminarTarea(i));// crea un array de promesas con las tareas a eliminar 
+        Promise.all(promesas)// ejecuta todas las promesas 
+            .then(() => setTareas([]))// si todas las promesas se ejecutan correctamente, limpia el listado de tareas
+            .catch(error => console.log(error));// si hay un error, lo muestra en la consola
     };
 
     // Obtener las tareas al cargar el componente
-    useEffect(() => {
-        obtenerTareas();
+    useEffect(() => {// hook de efecto para obtener las tareas al cargar el componente
+        obtenerTareas();// llama a la funcion obtenerTareas
     }, []);
 
     // Creamos las funciones flecha necesarias para realizar todas las acciones del Text
-    const manejarEntrada = (event) => {
-        setNuevaTarea(event.target.value);
+    const manejarEntrada = (event) => {// funcion para manejar la entrada del campo de texto
+        setNuevaTarea(event.target.value);// actualiza el estado de la nueva tarea con el valor del campo de texto
     };
 
-    const manejarTecla = (e) => {
-        if (e.key === 'Enter') {
-            añadirTareas();
+    const manejarTecla = (e) => {// funcion para manejar la tecla 'Enter' del teclado
+        if (e.key === 'Enter') {// si la tecla presionada es 'Enter'
+            añadirTareas();// llama a la funcion añadirTareas
         }
     };
 
-    const manejarClicDeEliminar = () => {
-        eliminarTodasTareas();
+    const manejarClicDeEliminar = () => {// funcion para manejar el clic del boton de eliminar todas las tareas
+        eliminarTodasTareas();// llama a la funcion eliminarTodasTareas
     };
 
-    const manejarClic = () => {
-        añadirTareas();
-    };
+   
 
     return (
         <>
