@@ -70,14 +70,25 @@ const Text = () => {
             method: "DELETE",// metodo de la peticion DELETE para eliminar todas las tareas
             headers: { "Content-Type": "application/json" }// tipo de contenido que se envia en la peticion /json
         };
-        fetch('https://playground.4geeks.com/todo/todos/NuevoRozpide', requestOptions)// hace una peticion a la url con las opciones de la peticion
-         .then((response) => {// si la respuesta es correcta
-            if (!response.ok) {// si la respuesta no es correcta
-                throw new Error('Error al eliminar todas las tareas');}// lanza un error
-            return response.text(); })// que devuelve la respuesta en formato texto
-            .then(() => { setTareas([]); })// si la respuesta es correcta, llama a la funcion setTareas y le pasa un array vacio
-            .catch(error => console.log(error));// si hay un error, lo muestra en la consola
-        };
+        tareas.map((tarea, index) => {
+            fetch(`https://playground.4Geeks.com/todo/todos/NuevoRozpide/${tarea.id}`,requestOptions)
+        fetch('https://playground.4geeks.com/todo/todos/NuevoRozpide', requestOptions)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Error al eliminar todas las tareas');
+                }
+                return response.text();
+            })
+            .then(() => {
+                if (index === tareas.length - 1) {
+                    setTareas([]);
+                }
+            })
+            .catch(error => console.log(error));
+      
+        
+        });
+    };
     
     // Obtener las tareas al cargar el componente
     useEffect(() => {
@@ -97,7 +108,9 @@ const Text = () => {
             añadirTareas(); // llama a la funcion añadirTareas si se presiona 'Enter'
         }
     };
-    const manejarClicDeEliminar = () => { eliminarTodasTareas(); };
+    const manejarClicDeEliminar = () => {
+        eliminarTodasTareas();
+    };
 
 
     return (
