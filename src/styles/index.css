@@ -153,3 +153,14 @@ body {
     color: #c7c9c2; /* Color gris claro */
     padding-left: 10px; /* Espacio a la izquierda */
 }
+.boton-eliminar-todas-tareas {
+    background-color: rgb(247, 240, 245); 
+    border-radius: 3px;
+    margin-bottom: 10px;
+    top: 80%; /* Posición en la parte superior */
+    box-shadow: 1px 5px 8px rgba(5, 5, 5, 5); /* Sombra ligera */
+    transform: translateY(-5px) scale(1); /* Transformación */
+    z-index: -2;
+    color:rgb(108, 106, 106);
+    border-color: rgb(180, 176, 178);
+}
