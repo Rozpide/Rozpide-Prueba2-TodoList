@@ -101,9 +101,12 @@ const Text = () => {
     return (
         <>
             <h1 className="titulo">todos</h1>
+            <span>
+                <button onClick={manejarClicDeEliminar} className="boton-eliminar-todas-tareas">Eliminar Todas las Tareas</button>
+            </span>
             <div className="entrada-tarea">
                 <input type="text" className="input-tarea" value={nuevaTarea} onChange={manejarEntrada} onKeyDown={manejarTecla} placeholder="What needs to be done?" />
-                <button onClick={manejarClic} className="boton-añadir-tarea">Añadir Tarea</button>
+                
             </div>
             <ul className="lista-tareas">
                 {tareas.map((tarea, index) => (
@@ -118,9 +121,8 @@ const Text = () => {
             
             <div className="folio"></div>
             <div className="folio-2"></div>
-            <div>
-                <button onClick={manejarClicDeEliminar} className="boton-eliminar-todas-tareas">Eliminar Todas las Tareas</button>
-            </div>
+            
+            
         </>
     );
 };
