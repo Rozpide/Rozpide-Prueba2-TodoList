@@ -12,11 +12,12 @@ import '../styles/index.css'
 import Home from './components/Home';
 import TodoList from './components/TodoList';
 import ToodoList from './components/ToodoList';
+import Text from './components/Text';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/*<Home/>*/}
-    <TodoList/>
+    <Text/>
     {/*<ToodoList/>*/}
   </React.StrictMode>,
 )
