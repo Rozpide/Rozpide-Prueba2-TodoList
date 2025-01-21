@@ -154,6 +154,8 @@ body {
     padding-left: 10px; /* Espacio a la izquierda */
 }
 .boton-eliminar-todas-tareas {
+
+    align-items: center;
     background-color: rgb(247, 240, 245); 
     border-radius: 3px;
     margin-bottom: 10px;
@@ -163,4 +165,13 @@ body {
     z-index: -2;
     color:rgb(108, 106, 106);
     border-color: rgb(180, 176, 178);
+    justify-content: center;
 }
+.contenedor-boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+

@@ -99,9 +99,9 @@ const TodoList = () => {
     return (
         <>
             <h1 className="titulo">todos</h1>
-            <span>
+            <div className="contenedor-boton">
                 <button onClick={manejarClicDeEliminar} className="boton-eliminar-todas-tareas">Eliminar Todas las Tareas</button>
-            </span>
+            </div>
             <div className="entrada-tarea">
                 <input type="text" className="input-tarea" value={nuevaTarea} onChange={manejarEntrada} onKeyDown={manejarTecla} placeholder="What needs to be done?" />
                 
