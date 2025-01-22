@@ -37,7 +37,7 @@ const TodoList = () => {
                 return resp.json();// si la respuesta es correcta, devuelve la respuesta en formato json
             })
             .then(data => {
-                setTareas([...tareas, data]);// añade la nueva tarea al listado de tareas
+                setTareas([...tareas, data]);// si la respuesta es correcta, llama a la funcion setTareas y le pasa el listado de tareas y la nueva tarea
                 setNuevaTarea('');// por ultimo limpia el campo del input para que el usuario pueda añadir otra tarea
             })
             .catch(error => console.log(error));// si hay un error, lo muestra en la consola para que el usuario pueda verlo
