@@ -15,7 +15,7 @@ const Text = () => {
                 }
                 return resp.json();// si la respuesta es correcta, devuelve la respuesta en formato json
             })
-            .then(data => setTareas(data))// si la respuesta es correcta, llama a la funcion setTareas y le pasa la respuesta en formato json
+            .then(data => setTareas(data.todos))// si la respuesta es correcta, llama a la funcion setTareas y le pasa la respuesta en formato json
             .catch(error => console.log(error));// si hay un error, lo muestra en la consola
     };
 

@@ -17,7 +17,7 @@ import Text from './components/Text';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     
-    <TodoList/>
+    <Text/>
  
   </React.StrictMode>,
 )
