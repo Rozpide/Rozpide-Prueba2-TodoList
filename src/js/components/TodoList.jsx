@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 // inicio creando el componente funcional 'Text'
 const TodoList = () => {
     // creo las variables de estado necesarias para este componente
-    const [tareas, setTareas] = useState([]); // variable de estado para el listado de tareas, por eso al hook le paso [] vacio
+    const [tareas, setTareas] = useState([]); // variable de estado para el listado de tareas inicializado ([] vacio)
     const [nuevaTarea, setNuevaTarea] = useState(''); // variable de estado para el campo de entrada inicializado ('') vacia
 
     // Función para obtener las tareas
@@ -100,7 +100,7 @@ const TodoList = () => {
         <>
             <h1 className="titulo">todos</h1>
             
-                <button onClick={manejarClicDeEliminar} className="boton-eliminar-todas-tareas">Eliminar Todas las Tareas</button>
+            <button onClick={manejarClicDeEliminar} className="boton-eliminar-todas-tareas">Eliminar Todas las Tareas</button>
            
             <div className="entrada-tarea">
                 <input type="text" className="input-tarea" value={nuevaTarea} onChange={manejarEntrada} onKeyDown={manejarTecla} placeholder="What needs to be done?" />
