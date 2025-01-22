@@ -8,7 +8,7 @@ const Text = () => {
 
     // Función para obtener las tareas
     const obtenerTareas = () => {
-        fetch('https://playground.4geeks.com/todo/todos/users/NuevoRozpide')// hace una peticion a la url, desde postman la url no lleva 'todos'
+        fetch('https://playground.4geeks.com/todo/users/NuevoRozpide')// hace una peticion a la url, desde postman la url no lleva 'todos'
             .then(resp => {// si la respuesta es correcta
                 if (!resp.ok) {// si la respuesta no es correcta lanza un error
                     throw new Error('Error al obtener las tareas');// lanza un error
