@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+//-------------->IMPORTANTE, PARA QUE LA APLICACION FUNCIONE HAY QUE CREAR UN USUARIO EN LA API DE 4GEEKS<----------------
 
 // inicio creando el componente funcional 'Text'
 const Text = () => {
@@ -8,14 +9,14 @@ const Text = () => {
 
     // Función para obtener las tareas
     const obtenerTareas = () => {
-        fetch('https://playground.4geeks.com/todo/users/NuevoRozpide')// hace una peticion a la url, desde postman la url no lleva 'todos'
-            .then(resp => {// si la respuesta es correcta
+        fetch('https://playground.4geeks.com/todo/users/NuevoRozpide')// hace una peticion a la url
+            .then(resp => {
                 if (!resp.ok) {// si la respuesta no es correcta lanza un error
-                    throw new Error('Error al obtener las tareas');// lanza un error
+                    throw new Error('Error al obtener las tareas');// lanza este error
                 }
                 return resp.json();// si la respuesta es correcta, devuelve la respuesta en formato json
             })
-            .then(data => setTareas(data.todos))// si la respuesta es correcta, llama a la funcion setTareas y le pasa la respuesta en formato json
+            .then(data => setTareas(data.todos))// si la respuesta es correcta, actualiza el listado de tareas con la respuesta
             .catch(error => console.log(error));// si hay un error, lo muestra en la consola
     };
 
@@ -53,9 +54,9 @@ const Text = () => {
                 "Content-Type": "application/json"  
             }
         })
-        .then((resp) => {// si la respuesta es correcta
-            if (!resp.ok) {
-                throw new Error('Error al eliminar la tarea');// si la respuesta no es correcta lanza un error
+        .then((resp) => {
+            if (!resp.ok) {// si la respuesta no es correcta
+                throw new Error('Error al eliminar la tarea');// se lanza este error
             }
             return resp.text();// si la respuesta es correcta, devuelve la respuesta en formato texto
         })
