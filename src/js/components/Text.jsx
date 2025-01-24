@@ -16,7 +16,7 @@ const Text = () => {
                 }
                 return resp.json();// si la respuesta es correcta, devuelve la respuesta en formato json
             })
-            .then(data => setTareas(data.todos))// si la respuesta es correcta, actualiza el listado de tareas con la respuesta
+            .then(data => setTareas(data.todos))// si la respuesta es correcta, actualiza el listado de tareas con la respuesta a traves de la variable de estado
             .catch(error => console.log(error));// si hay un error, lo muestra en la consola
     };
 
